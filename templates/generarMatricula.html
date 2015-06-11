@@ -1,0 +1,110 @@
+{% extends "base_logueado_user.html" %}
+
+{% block user%}
+    {{ nombre_usuario }}
+{% endblock %}
+{% block contenido %}
+    <br><br><br>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Datos Personales</h3>
+        </div>
+        <div class="panel-body" id="divMatricula">
+            {%if cargaForm%}
+                <form class="form-horizontal" role="form" method="POST" action="." id='frmRegistroMatricula'>
+                <!-- NOMBRE -->
+                <!--div class="form-group">
+                    <label for="txtAnoLectivo" class="col-sm-5 control-label">Año Lectivo:</label>
+
+                    <div class="col-sm-4" id='divNombre'>
+                        <input type="text" class="form-control" id="txtAnoLectivo" name="txtAnoLectivo" placeholder="Año Lectivo">
+                    </div>
+                </div-->
+
+                <!-- CURSO -->
+                <div class="form-group">
+                    <label for="chEstado" class="col-sm-5 control-label">Curso:</label>
+                    <div class="col-sm-4">
+                        <div class="checkbox">
+                            <label>
+                                <select class="form-control" name="cmbCurso" id="cmbCurso"></select>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESPECIALIDAD -->
+                <div class="form-group" style="display:none;" id='divEspecialidad'>
+                    <label for="txtEspecialidad" class="col-sm-5 control-label">Especialidad:</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="cmbEspecialidad" id="cmbEspecialidad"></select>
+                    </div>
+                </div>
+
+
+                <!-- PARALELO -->
+                <div class="form-group">
+                    <label for="cmbParalelo" class="col-sm-5 control-label">Paralelo:</label>
+                    <div class="col-sm-4">
+                        <div class="checkbox">
+                            <label>
+                                <select class="form-control" name="cmbParalelo" id="cmbParalelo"></select>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECCION -->
+                <div class="form-group">
+                    <label for="txtValor" class="col-sm-5 control-label">Sección:</label>
+                    <div class="col-sm-4" id='divValor'>
+                        <select class="form-control" name="cmbSeccion" id="cmbSeccion">
+                            <option value="Matutina">Matutina</option>
+                            <option value="Vespertina">Vespertina</option>
+                            <!--option value="Nocturna">Nocturna</option-->
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- CUPO MAXIMO -->
+                <div class="form-group">
+                    <label for="txtCupoMaximo" class="col-sm-5 control-label">Cupo Máximo:</label>
+                    <div class="col-sm-4" id='divNombre'>
+                        <input type="text" class="form-control" id="txtCupoMaximo" name="txtCupoMaximo">
+                    </div>
+                </div>
+
+                <!-- CUPO MINIMO -->
+                <div class="form-group">
+                    <label for="txtCuposDisponibles" class="col-sm-5 control-label">Cupos Disponibles:</label>
+                    <div class="col-sm-4" id='divNombre'>
+                        <input type="text" class="form-control" id="txtCuposDisponibles" name="txtCuposDisponibles" >
+                    </div>
+                </div>
+
+                <!-- AGREGAR -->
+                <div class="form-group">
+                    <div class="col-sm-offset-6 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Gestionar Matrícula</button>
+                    </div>
+                </div>
+
+            </form>
+            {%else%}
+                <h4> No Se Encuentran Matrículas Disponibles</h4>
+            {%endif%}
+
+            
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/forms/ajax.js"></script>
+    <!--Funciones Que Cargan Combos-->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/forms/cargarCombos.js"></script>
+    <!--************************-->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/forms/generaMatricula.js"></script>
+{% endblock %}

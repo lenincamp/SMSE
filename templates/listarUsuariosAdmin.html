@@ -1,0 +1,200 @@
+{% extends "base_logueado_admin.html" %}
+
+{% block css %}
+	@import url("{{ STATIC_URL }}css/filterable.css");
+{% endblock css %}
+
+{% block user %}
+	{{nombre_usuario}}	
+
+{% endblock user %}
+
+{% block contenido %}
+	<br><br><br><br>	
+	
+	<div class="row">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+	        	<h3 class="panel-title">Listar Usuarios</h3>
+	        </div>
+
+	        <br>
+            
+        	<div class="row">
+        		<!--CMB TIPO DE USUARIO-->
+				<div class="col-md-2 col-md-offset-1" >
+					<select class="form-control input-sm" id="cmbTipoUsuario" name="cmbTipoUsuario">
+
+					</select>
+				</div>
+
+				<!--CMB SECCION-->
+				<!--div class="col-md-2" style="display:none;" id="divSeccion">
+					<select class="form-control input-sm" id="cmbSeccion">
+					  <option value="0" enable="false" selected="true">Sección:</option>
+					  <option value="Matutina">Matutina</option>
+					  <option value="Vespertina">Vespertina</option>
+					</select>
+				</div-->
+
+				<!--CMB CURSO-->
+				<div class="col-md-2" style="display:none;" id="divCurso">
+					<select class="form-control input-sm" id="cmbCurso" name="cmbCurso">
+
+					</select>
+				</div>
+
+				<!--CMB ESPECIALIDAD-->
+				<div class="col-md-2" style="display:none;" id='divEspecialidad'>
+					<select class="form-control input-sm" id="cmbEspecialidad" name="cmbEspecialidad">
+
+					</select>
+				</div>
+
+
+				<!--CMB PARALELO-->
+				<div class="col-md-2" style="display:none;" id="divParalelo">
+					<select class="form-control input-sm" id="cmbParalelo" name="cmbParalelo">
+
+					</select>
+				</div>
+				
+				<!--BTN FILTRAR ESTUDIANTES-->
+                <div class="col-md-1">
+		                    <button class="btn btn-info" id="btnFiltrar">
+		                    	<span class="glyphicon glyphicon-filter"></span>Buscar
+		                    </button>
+		                </div>
+
+			</div>
+
+
+
+			<!--TABLA FILTROS-->
+			<div class="col-xs-12" id="divTablaFiltros">
+				<div class="panel panel-info filterable table-responsive">
+		            <div class="panel-heading">
+		                <h3 class="panel-title">Resultados</h3>
+		                <div class="pull-right">
+		                    <button class="btn btn-info btn-xs btn-filter">
+		                    	<span class="glyphicon glyphicon-filter"></span>Filtrar
+		                    </button>
+		                </div>
+		            </div>
+					<div style="max-height:380px; overflow-y:scroll;">
+			            <table class="table text-center table-hover table-bordered table-condensed table-striped" id="tablaFiltros" style="display:none;">
+
+			            </table>
+			        </div>
+
+
+		        </div>
+	    	</div>
+	    </div>
+
+	</div>
+
+	<!-- FOLIO -->
+	<div id="modalFrmFolio" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header text-center" style="background:#3276b1; ">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 id="myModalLabel" style="color:#fff;">Acta de Matrícula</h4>
+				</div>
+				<form method="POST" id="frmFolio" class="form-horizontal" role="form">
+					<div class="modal-body">
+						 <input type="hidden" id="idMatricula">
+						 <div class="form-group">
+						    <label class="col-lg-4 control-label">Alumno:</label>
+						    <div class="col-lg-7">
+						      <input type="text" class="form-control" id="txtNombres" name="txtNombres" readonly="">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-lg-4 control-label">Fecha de Matricula:</label>
+						    <div class="col-lg-4">
+						      <input type="date" class="form-control" id="txtFechaMatricula">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-lg-4 control-label">Número Folio:</label>
+						    <div class="col-lg-3">
+						      <input type="text" class="form-control" id="txtNumeroFolio"
+						             >
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-lg-4 control-label">Número Matricula:</label>
+						    <div class="col-lg-3">
+						      <input type="text" class="form-control" id="txtNumeroMatricula" readonly="true">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-lg-4 control-label">Tipo:</label>
+						    <div class="col-lg-4">
+						      <select id="cmbTipo" class="form-control">
+						      	<option value="Ordinaria">ORDINARIA</option>
+						      	<option value="Extraordinaria">EXTRAORDINARIA</option>
+						      </select>
+						    </div>
+						  </div>
+
+
+
+					</div>
+					<div class="modal-footer">
+						<div class="col-sm-7">
+							<button type="submit" class="btn btn-primary">Guardar</button>
+						</div>
+
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="cambiarDatos" style="display: none;">
+		{% include "forms/datos_alumno.html" %}
+	</div>
+{% endblock contenido %}
+
+{% block javascript %}
+
+	<!--Funciones Que Cargan Combos-->
+	<script type="text/javascript" src="{{ STATIC_URL }}js/forms/cargarCombos.js"></script>
+	<!--************************-->
+	<script type="text/javascript" src="{{ STATIC_URL }}js/forms/listarUsuariosAdmin.js"></script>
+	
+	<script type="text/javascript" src="{{ STATIC_URL }}js/forms/matriculaRegistro.js"></script>
+
+
+
+
+<script>
+
+$(function(){
+  	   //$("#divFormularioDatos").attr('class', 'col-sm-12');
+  	   //$("#tituloFormDatos").remove();
+  	   //$("#btnOrigen").remove();
+  	   $("#divBtnCancelar").html("<a class='btn btn-default' id='btnCancelar' onclick=$('#cambiarDatos').fadeOut(400);>Cancelar</a>")
+       $("input[name='rdRepresentante']").change(function(){
+           if (this.value == "Otros"){
+                $('#pestania_representante').removeClass("hidden");
+           }
+           else
+           {
+                $('#pestania_representante').addClass("hidden");
+           }
+
+
+       });
+
+
+});
+
+</script>
+
+{% endblock javascript %}

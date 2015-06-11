@@ -1,0 +1,96 @@
+{% extends "base_logueado_admin.html"	%}
+{% block user %}
+	{{	nombre_usuario	}}
+{% endblock user %}
+
+
+{%	block contenido%}
+	<br><br><br><br>
+	<!-- BOTON AGREGAR-->
+	<div class="text-right">
+		<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#idProvincia" onclick="$.editarText('Agregar Nueva Provincia')">
+		              <span class="glyphicon glyphicon-plus-sign" ></span>Nuevo
+		        </button>							
+	</div>
+
+	<!-- CARGAR CURSOS -->
+	
+		<br>
+		<!-- TABLA -->
+		<!--TABLA FILTROS-->
+		<div class="row">
+			
+		<div class="col-xs-3"></div>
+			<div class="col-xs-6" id="divTablaFiltros">
+				<div class="panel panel-info filterable table-responsive">
+		            <div class="panel-heading">
+		                <h3 class="panel-title" style="text-align: center;">Provincia</h3>		                
+		            </div>
+		            <div style="height: 250px; overflow-y:auto;">
+		            	<table class="table text-justified table-hover table-bordered table-condensed" id="tabla">
+				            <thead>
+				            	<th >#</th>
+				            	<th >Nombre</th>
+				            	<th>Pais</th>				            	
+				            	<th >Acción</th>
+				            </thead>
+				            <tbody id="bodyTablaProvincia">
+				            	
+				            </tbody>
+			            </table>
+	
+		            </div>
+		            
+
+		        </div>
+	    	</div>
+	    <div class="col-xs-3"></div>
+	   <!-- MODAL PROVINCIA -->
+		<div class="row">
+			<div class="modal fade"  id="idProvincia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	            <div class="modal-dialog" style="width:300px">
+
+	              <div class="modal-content panel panel-primary">
+
+	                <div class="modal-header panel panel-heading">
+
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title" id="myModalLabel" style="text-align: center;"></h4>
+
+	                </div>
+	               
+	                <div class="modal-body" >
+	                	<input type="hidden" id="txtIdProvincia" value="0">
+	                	<div id="alert" style="display:none;" class="alert alert-danger"></div>                
+	                	
+	                	<label >País: </label><select class="form-control input-xs" id="cmbPais"> </select>
+	                    <br> <br>
+	                    <label >Provincia:</label> 	                   
+	                    <input type="text" class="form-control" placeholder="Nueva Provincia" name="txtNuevaProvincia" id="txtNuevaProvincia">                                      
+	                   
+	                 </div>
+	                
+
+	                <div class="modal-footer" >
+
+	                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+	                	<a href="" type="button" class="btn btn-primary" id="btnGuardarProvincia">Guardar</a>
+
+	                </div>
+	            
+	              </div>
+
+	             </div>
+	       </div>
+	
+		</div>
+		<!-- end modal curso -->
+
+
+{%	endblock contenido%}
+
+{% block javascript %}
+
+	<script type="text/javascript" src="{{ STATIC_URL }}js/forms/provincia.js"></script>
+
+{% endblock javascript %}

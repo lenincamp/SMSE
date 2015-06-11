@@ -1,0 +1,148 @@
+{% extends "base_logueado_admin.html" %}
+
+{% block user %}
+	{{nombre_usuario}}
+{% endblock user %}
+
+{% block contenido %}
+    <br><br><br><br>
+    	<div class="row">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+	        	<h3 class="panel-title">Ver Matriculas</h3>
+	        </div>
+
+	        <br>
+            <form role="form" method="POST">
+        	<div class="row">
+
+        		<!--CMB TIPO DE USUARIO-->
+				<div class="col-md-2 col-md-offset-1">
+				</div>
+
+
+
+				<!--CMB CURSO-->
+				<div class="col-md-2" style="" id="divCurso">
+					<select class="form-control input-sm" id="cmbCurso" name="cmbCurso">
+
+					</select>
+				</div>
+
+				<!--CMB ESPECIALIDAD-->
+				<div class="col-md-2" style="display: none;" id='divEspecialidad'>
+					<select class="form-control input-sm" id="cmbEspecialidad" name="cmbEspecialidad">
+                        <option></option>
+					</select>
+				</div>
+
+
+				<!--CMB PARALELO-->
+				<div class="col-md-2" style="" id="divParalelo">
+					<select class="form-control input-sm" id="cmbParalelo" name="cmbParalelo">
+
+					</select>
+				</div>
+
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-info" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>&nbsp;Buscar
+                    </button>
+
+                </div>
+
+
+			</div>
+            <br>
+		<div class="col-xs-12" id="divTablaFiltros">
+				<div class="panel panel-info filterable table-responsive">
+		            <div class="panel-heading">
+		                <h3 class="panel-title">Resultados</h3>
+
+		            </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <table class="table text-center table-hover table-bordered table-condensed table-striped" id="tablaFiltros" style="">
+                        {% ifequal mostrar "ok" %}
+                            <thead>
+                            <tr class="panel-default">
+                            <td style="text-align: center"><h4><strong>#</strong></h4></td><td style="text-align: center"><h4><strong>Cédula</strong></h4></td>
+                            <td style="text-align: center"><h4><strong>Alumno</strong></h4></td>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% for tra in pages.object_list %}
+                            <tr>
+                            <td style="text-align: center">{{ tra.columna }}</td><td style="text-align: center">{{ tra.cedula }}</td>
+                            <td style="text-align: center">{{ tra.alumno }}</td>
+
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+
+
+
+                        {% else %}
+                            {% ifequal mostrar "no" %}
+                                <tr><td><h2>No se Han encontrado los Resultados</h2></td></tr>
+                            {% else %}
+
+
+                            {% endifequal %}
+
+                        {% endifequal %}
+
+		            	</table>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                {% ifequal mostrar "ok" %}
+                  <div>
+                      <ul class="pagination">
+                        {% if pages.has_previous %}
+
+                        <li class=""><a href="/si/verMatriculasAdmin/pages/{{ pages.previous_page_number }}">&laquo;</a></li>
+                        {% else %}
+                         <li class=""><a href="#">&laquo;</a></li>
+                        {% endif %}
+
+                        <li class="active"><a href=/si/verMatriculasAdmin/pages/{{ pages.number }}>{{ pages.number }}<span class="sr-only">(current)</span></a></li>
+
+                        {% if pages.has_next %}
+
+                        <li class=""><a href="/si/verMatriculasAdmin/pages/{{ pages.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                            <li class=""><a href="#">&raquo;</a></li>
+                        {% endif %}
+
+                       </ul>
+                  </div>
+                 {% endifequal %}
+
+
+
+		        </div>
+	    	</div>
+	    </form>
+        </div>
+
+
+	</div>
+
+{% endblock %}
+
+{% block javascript %}
+    <!--Funciones Que Cargan Combos-->
+	<script type="text/javascript" src="{{ STATIC_URL }}js/forms/cargarCombos.js"></script>
+    <script>
+    $(function(){
+
+        $.AJAX("/si/registro_matricula/cmb_cursos/","", $.cargarCmbCursos, false);
+    })
+
+    </script>
+{% endblock %}

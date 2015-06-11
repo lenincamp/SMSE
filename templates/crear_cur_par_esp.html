@@ -1,0 +1,290 @@
+{% extends "base_logueado_admin.html"	%}
+{% block user %}
+	{{	nombre_usuario	}}
+{% endblock user %}
+{% block contenido	%}
+	<br><br>	<br>	<br>
+	
+	<div class="row">
+	<form id="frmCrearCurParEsp" method="POST" class=".form-horizontal">
+		<div class="row"> 
+			<!--CMB CURSO-->
+			<div class="span4">
+				<div class="panel panel-primary col-sm-4">
+					<div class="panel-heading">
+						<h3 class="panel-title">Crear Curso</h3>
+					</div>
+					<div class="panel-body"><select id="cmbCurso"></select><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#idCurso">
+		              <span class="glyphicon glyphicon-plus-sign"></span>
+		        </button>							
+					</div>
+				</div>
+			</div>
+			
+       
+       <!-- CMB ESPECIALIDAD -->
+			<div class="span4">
+				<div class="panel panel-primary col-sm-4" >
+					<div class="panel-heading">
+						<h3 class="panel-title">Crear Especialidad</h3>
+					</div>
+					<div class="panel-body"><select id="cmbEspecialidad"></select><button id="btnEspecialidadModal" type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#idEspecialidad">
+	              <span class="glyphicon glyphicon-plus-sign"></span>
+	        </button>					
+					</div>
+				</div>
+			</div>
+			
+			
+
+			<!--CMB PARALELO -->
+			<div class="span4">
+				<div class="panel panel-primary col-sm-4">
+					<div class="panel-heading">
+						<h3 class="panel-title">Crear Paralelo</h3>
+					</div>
+					<div class="panel-body"><select id="cmbParalelo"></select><button id="btnParaleloModal" type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#idParalelo">
+	              <span class="glyphicon glyphicon-plus-sign"></span>
+	        </button>					
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- MODAL NUEVO PARALELO -->
+		<div class="modal fade" id="idParalelo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+
+              <div class="modal-content panel panel-primary">
+
+                <div class="modal-header panel panel-heading">
+
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="myModalLabel">Agregar Nuevo Paralelo</h4>
+
+                </div>
+
+				<div class="modal-body" id="divParalelo">
+                <br>
+                </div>
+
+                <div class="modal-body">
+                <br>
+
+                    <label>Paralelo:</label> <input type="text" class="form-control" placeholder="Nuevo Paralelo" name="txtNuevoParalelo" id="txtNuevoParalelo">
+
+                </div>
+
+                <div class="modal-footer" >
+
+                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                	<a href="" type="button" class="btn btn-primary" id="btnGuardarParalelo">Guardar</a>
+
+                </div>
+
+              </div>
+
+             </div>
+       </div>
+		<!-- END MODAL PARALELO -->
+
+		<!-- ROW PARA PAIS , PROVINCIA , CANTON , PARROQUIA-->	
+		<div class="row">
+			<div class="span3">
+			<!-- CMB PAIS-->
+				<div class="panel panel-primary col-sm-3">
+					<div class="panel-heading">
+						<h3 class="panel-title">País</h3>
+					</div>
+					<div class="panel-body"><select id="cmbPais"></select><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#idPais">
+		              <span class="glyphicon glyphicon-plus-sign"></span>
+		        </button>							
+					</div>
+				</div>
+			</div>
+			<!-- MODAL PAIS -->
+		<div class="modal fade" id="idPais" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+
+              <div class="modal-content panel panel-primary">
+
+                <div class="modal-header panel panel-heading">
+
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="myModalLabel">Agregar Nuevo País</h4>
+
+                </div>
+
+                <div class="modal-body">
+                <br>
+
+                    <label>País:</label> <input type="text" class="form-control" placeholder="Nuevo Curso" name="txtNuevoPais" id="txtNuevoPais">
+
+                </div>
+
+                <div class="modal-footer" >
+
+                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                	<a href="" type="button" class="btn btn-primary" id="btnGuardarPais">Guardar</a>
+
+                </div>
+
+              </div>
+
+             </div>
+       </div>
+			
+			<div class="span3">
+			<!-- CMB PROVINCIA -->
+				<div class="panel panel-primary col-sm-3">
+					<div class="panel-heading">
+						<h3 class="panel-title">Provincia</h3>
+					</div>
+					<div class="panel-body"><select id="cmbProvincia"></select><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#idProvincia">
+		              <span class="glyphicon glyphicon-plus-sign"></span>
+		        		</button>							
+					</div>
+				</div>
+
+				<!-- MODAL PROVINCIA -->
+
+				<div class="modal fade" id="idProvincia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+
+              <div class="modal-content panel panel-primary">
+
+                <div class="modal-header panel panel-heading">
+
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="myModalLabel">Agregar Nueva Provincia</h4>
+
+                </div>
+
+                <div class="modal-body">
+                <br>
+
+                    <label>Provincia:</label> <input type="text" class="form-control" placeholder="Nueva Provincia" name="txtNuevaProvincia" id="txtNuevaProvincia">
+
+                </div>
+
+                <div class="modal-footer" >
+
+                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                	<a href="" type="button" class="btn btn-primary" id="btnGuardarProvincia">Guardar</a>
+
+                		</div>
+
+              		</div>
+
+             	</div>
+       		</div>
+
+
+			</div> <!-- end span-->
+			
+			<div class="span3">
+			<!-- CMB CANTON -->
+				<div class="panel panel-primary col-sm-3">
+					<div class="panel-heading">
+						<h3 class="panel-title">Canton</h3>
+					</div>
+					<div class="panel-body"><select id="cmbCanton"></select><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#idCanton">
+		              <span class="glyphicon glyphicon-plus-sign"></span>
+		        		</button>							
+					</div>
+				</div>
+
+				<!-- MODAL PROVINCIA -->
+
+				<div class="modal fade" id="idCanton" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+
+              <div class="modal-content panel panel-primary">
+
+                <div class="modal-header panel panel-heading">
+
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="myModalLabel">Agregar Nuevo Canton</h4>
+
+                </div>
+
+                <div class="modal-body">
+                <br>
+
+                    <label>Canton:</label> <input type="text" class="form-control" placeholder="Nuevo Canton" name="txtNuevoCanton" id="txtNuevoCanton">
+
+                </div>
+
+                <div class="modal-footer" >
+
+                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                	<a href="" type="button" class="btn btn-primary" id="btnGuardarCanton">Guardar</a>
+
+                		</div>
+
+              		</div>
+
+             	</div>
+       		</div>
+				
+			</div><!-- end span-->
+			
+
+			<div class="span3">
+				<!-- CMB CANTON -->
+				<div class="panel panel-primary col-sm-3">
+					<div class="panel-heading">
+						<h3 class="panel-title">Parroquia</h3>
+					</div>
+					<div class="panel-body"><select id="cmbParroquia"></select><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#idParroquia">
+		              <span class="glyphicon glyphicon-plus-sign"></span>
+		        		</button>							
+					</div>
+				</div>
+
+				<!-- MODAL PROVINCIA -->
+
+				<div class="modal fade" id="idParroquia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+
+              <div class="modal-content panel panel-primary">
+
+                <div class="modal-header panel panel-heading">
+
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="myModalLabel">Agregar Nueva Parroquia</h4>
+
+                </div>
+
+                <div class="modal-body">
+                <br>
+
+                    <label>Parroquia:</label> <input type="text" class="form-control" placeholder="Nueva Parroquia" name="txtNuevaParroquia" id="txtNuevaParroquia">
+
+                </div>
+
+                <div class="modal-footer" >
+
+                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                	<a href="" type="button" class="btn btn-primary" id="btnGuardarParroquia">Guardar</a>
+
+                		</div>
+
+              		</div>
+
+             	</div>
+       		</div>
+			</div><!-- end span-->
+		</div>
+
+	</form>
+	</div>
+
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript" src="{{ STATIC_URL }}js/forms/crearUsuario.js"></script>
+{% endblock javascript %}
+
+
+

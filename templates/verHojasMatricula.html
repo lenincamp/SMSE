@@ -1,0 +1,57 @@
+{% extends "base_logueado_user.html" %}
+
+{% block user %}
+	{{nombre_usuario}}
+{% endblock user %}
+
+{% block contenido %}
+	<br><br><br><br>
+	<div class="col-sm-8 col-md-offset-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+	        	<h3 class="panel-title">Listar Usuarios</h3>
+	        </div>
+
+	        <br>
+
+			<!--TABLA HOJAS MATRICULA-->
+			<div class="col-xs-12" id="divTablaHojasMatricula">
+				<div class="panel panel-info filterable table-responsive">
+		            <div class="panel-heading">
+		                <h3 class="panel-title">Ver Hojas de Matrícula</h3>	                
+		            </div>
+					
+			            <table class="table text-center table-hover table-bordered table-condensed" id="tablaHojasMatricula" style="font-size:12px;">
+						
+							<thead>
+		                        <tr id='tblEncabezados' >
+		                            <th style="text-align:center;">PERIODO</th>
+		                            <th style="text-align:center;">NIVEL</th>
+		                            <th style="text-align:center;">CURSO</th>
+		                            <th style="text-align:center;">HOJA DE MATRÍCULA</th>
+		                        </tr>
+		                    </thead>
+
+		                    <tbody id='bodyTableHojaMatricula'>
+		                    </tbody>
+
+			            </table>
+			        
+
+
+		        </div>
+	    	</div>
+	    </div>
+
+	</div>
+
+	
+	</body>
+{% endblock contenido %}
+
+{% block javascript %}
+	
+	<script type="text/javascript" src="{{ STATIC_URL }}js/forms/tablaHojasMatricula.js">
+	</script>
+
+{% endblock javascript %}

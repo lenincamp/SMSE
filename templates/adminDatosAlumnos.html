@@ -1,0 +1,9 @@
+{% extends "base_logueado_admin.html" %}
+{% block user %}
+	{{nombre_usuario}}
+{% endblock user %}
+
+
+{% block contenido %}
+	{% include "forms/datos_alumno.html" %}
+{% endblock contenido %}

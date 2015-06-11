@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Colegio El Oro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+	<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+	<!--script src="js/less-1.3.3.min.js"></script-->
+	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/tandazo.min.css" />
+
+	<link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ STATIC_URL }}img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ STATIC_URL }}img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="{{ STATIC_URL }}files/cebs.ico">
+
+	<script type="text/javascript" src="{{ STATIC_URL }}js/tandazo.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/scripts.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation" style="max-width: 84.1%; margin: 0 auto;">
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#"></a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#" style=" font-size: 16px"><span class="glyphicon glyphicon-home"></span>&nbsp Inicio</a>
+						</li>
+
+                        <li class="dropdown">
+							 <a href="#" style=" font-size: 16px" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> &nbsp Servicios<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="/Usuarios/Cuentas/Apertura/"><span class="glyphicon glyphicon-user"></span>&nbsp Servicios</a>
+								</li>
+                                <li class="divider">
+								</li>
+								<li>
+									<a href="/Usuarios/Cuentas/Cancelar/"><span class="glyphicon glyphicon-minus-sign"></span>&nbsp Cancelación de Cuenta</a>
+								</li>
+                                <li class="divider">
+								</li>
+                                <li>
+									<a href="#"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp Re-Apertura de Cuenta</a>
+								</li>
+							</ul>
+						</li>
+                        <li class="dropdown">
+							 <a href="#" style="font-size: 16px" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-tower"></span> &nbsp Institución<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-list-alt"></span>&nbsp Listado de Clientes</a>
+								</li>
+                                <li class="divider">
+								</li>
+								<li>
+									<a href="#"></a>
+								</li>
+							</ul>
+						</li>
+
+
+                        <li class="dropdown">
+							 <a href="#" style="font-size: 16px" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-hand-up"></span> &nbsp Contactenos<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="/Usuarios/Transacciones/Nueva/"><span class="glyphicon glyphicon-plus"></span>&nbsp Nueva Transacción</a>
+								</li>
+                                <li class="divider">
+								</li>
+
+                                <li>
+									<a href="/Usuarios/Transacciones/Nueva_Transferencia/"><span class="glyphicon glyphicon-refresh"></span>&nbsp Transferencias</a>
+								</li>
+                                <li class="divider">
+								</li>
+                                <li>
+									<a href="/Usuarios/Transacciones/Historial_Transacciones/"><span class="glyphicon glyphicon-list-alt"></span>&nbsp Historial de Transacciones</a>
+								</li>
+							</ul>
+						</li>
+
+
+
+					</ul>
+
+				</div>
+
+			</nav>
+
+            <!--
+            -->
+
+
+
+
+            <!--
+            -->
+
+					</div>
+				</div>
+
+
+
+
+    {% block contenido %}
+
+
+
+
+
+    {% endblock %}
+	</div>
+
+</div>
+{% block javascript %}
+
+
+{% endblock javascript %}
+</body>
+</html>

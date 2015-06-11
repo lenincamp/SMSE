@@ -1,0 +1,33 @@
+<html dir="ltr" lang="en-US"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SIMCO</title>
+    <!--- CSS ---> 
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/estilos_login.css" type="text/css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/selectivizr.js"></script>
+    <noscript><link rel="stylesheet" href="{{ STATIC_URL }}css/fallback.css" /></noscript> 
+    <![endif]-->
+</head>   
+
+<body> 
+    <div id="container">
+        <form action="/login/" method="post">
+            <div class="login">Inicio de Sesion</div> 
+            <div class="username-text">Usuario:</div>
+            <div class="password-text">Contraseña:</div> 
+            <div class="username-field">
+                <input type="text" name="txtUsuario"  /> </div> <div class="password-field">
+                <input type="password" name="txtClave" /> </div>
+                <input type="checkbox" name="remember-me" id="remember-me" />
+                <label for="remember-me">Remember me</label> 
+                <div class="forgot-usr-pwd">Forgot <a href="#">username</a> or <a href="#">password</a>?
+            </div>
+            <input type="submit" name="submit" value="GO" /> 
+         </form> 
+    </div> 
+    <div id="footer">
+
+    </div>
+</body>
+</html>

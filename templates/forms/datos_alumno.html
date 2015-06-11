@@ -1,0 +1,634 @@
+<div class="alert alert-success" role="alert" id="mensaje" style="display:none;width:250px;position:fixed;right: 10px;box-shadow: 5px 5px 5px #888888;">
+  
+</div>
+
+<form method="POST" action="/si/datos_personales/" id="frmDatosPersonales">
+      <div class="clearfix row">
+        <div class="col-lg-2"></div>
+        <div class="col-md-7" id="divFormularioDatos">
+
+          <div class="panel panel-info">
+            <div class="panel-heading" id="tituloFormDatos">
+              <h3 class="panel-title">Datos Personales</h3>
+            </div>
+            <div class="panel-body">
+
+
+            <div class="row">
+
+
+              <div class="col-md-4">
+                <div class="form-group">
+                    <label>Cedula:</label>
+                    <input required maxlength="10" type="text" class="form-control" placeholder="Inserte su Cédula" name="txtCedulaE" id="txtCedulaE" readonly="" style="background: #fff;">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Nombres:</label>
+                    <input required type="text" class="form-control" placeholder="Inserte sus Nombres" name="txtNombresE" id="txtNombresE" readonly="" style="background: #fff;">
+                </div>
+            	</div>
+
+
+            	<div class="col-md-6">
+                <div class="form-group">
+                  <label>Apellidos:</label>
+                  <input required type="text" class="form-control" placeholder="Inserte sus Apellidos" name="txtApellidosE" id="txtApellidosE" readonly="" style="background: #fff;">
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label>F. Nacimiento:</label>
+                  <input required type="text" class="form-control" name="txtFechaNacimientoE" id="txtFechaNacimientoE">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+            </div>
+
+	          <div class="col-md-3">
+	            <div class="form-group">
+                <label>Edad:</label>
+                <input readonly type="text" class="form-control" name="txtEdadE" id="txtEdadE" style="background: #fff;">
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Lugar De Nacimiento: </label>
+                <input type="text" placeholder="Machala-El Oro-Ecuador" class="form-control" name="txtLugarNacimiento" id="txtLugarNacimiento">          
+              </div>
+            </div>
+          </div>
+          <!---->
+
+          <div class="modal fade" id="idNacionalidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content panel panel-primary">
+                <div class="modal-header panel panel-heading">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">Agregar Nueva Nacionalidad</h4>
+                </div>
+                <div class="modal-body">
+                	<br>
+                  <label>Nacionalidad</label> <input type="text" class="form-control" placeholder="Inserte su Nacionalidad" name="txtNuevoPaisE" id="txtNuevoPaisE">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" id="btnCancelar">Cancelar</button>
+                  <a href="" type="button" class="btn btn-primary">Guardar</a>
+                </div>
+              </div>
+            </div>
+         </div>
+          <!---->
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Tel. Convencional:</label>
+                <input required type="text" class="form-control" placeholder="" maxlength="10" name="txtTelefonoConvencionalE" id="txtTelefonoConvencionalE">
+                <!--span class="help-block"> EL formato del telefono convencional es (072)-790-016</span-->
+              </div>
+            </div>
+
+            <div class="col-md-2"></div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Tel. Movil:</label>
+                  <input required type="text" class="form-control" placeholder="" maxlength="10" name="txtTelefonoMovilE" id="txtTelefonoMovilE">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="tabbable" id="tabs-992947">
+        				<ul class="nav nav-tabs" id="pestanias">
+        					<li class="active">
+        						<a href="#panel-inf_personal" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>&nbsp Información Personal</a>
+        					</li>
+
+                  <li>
+        						<a href="#panel-datos_domicilio" data-toggle="tab"><span class="glyphicon glyphicon-map-marker"></span>&nbsp Domicilio</a>
+        					</li>
+
+        					<li>
+        						<a href="#panel-datos_familiares" data-toggle="tab"><span class="glyphicon glyphicon-home"></span>&nbsp Datos Familiares</a>
+        					</li>
+
+                  <li id="pestania_representante" class="hidden">
+        						<a href="#panel-datos_representante" data-toggle="tab"><span class="glyphicon glyphicon-"></span>&nbsp Representante</a>
+        					</li>
+
+        				</ul>
+        				<div class="tab-content">
+        					<div class="tab-pane active panel panel-body" id="panel-inf_personal">
+                    <div class="row">
+                      <br>
+                      <!--<div class="col-xs-1"></div>-->
+                      <div class="col-md-7">
+                      	<label><h5><strong>1) Es Huerfano De:</strong></h5></label> &nbsp
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3"></div>
+                      
+                      <div class="col-md-6">
+                        <label class="checkbox-inline">
+	                         <input type="checkbox" id="chkHuerfanoPadre" name="chkHuerfanoPadre" value="Si"> Padre
+                        </label>
+                        <label class="checkbox-inline">
+                        	<input type="checkbox" id="chkHuerfanoMadre" name="chkHuerfanoMadre" value="Si"> Madre
+                        </label>
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                      <br>
+                      <div class="col-md-12">
+                      <label>
+                      	<h5>
+                      		<strong>2) A Quien Acudir en Caso de Emergencia</strong>
+                      	</h5>
+                      </label>
+
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label>Nombres y Apellidos: </label><input type="text" class="form-control" id="txtNombresApellidosEmergenciaE" name="txtNombresApellidosEmergenciaE">
+
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Tel. Convencional:</label>
+                        <input required type="text" class="form-control" placeholder="" maxlength="10" name="txtTelefonoConvencionalEmergenciaE" id="txtTelefonoConvencionalEmergenciaE">
+                      </div>
+
+                    </div>
+
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Tel. Movil:</label>
+                        <input required type="text" class="form-control" placeholder="" maxlength="10" name="txtTelefonoMovilEmergenciaE" id="txtTelefonoMovilEmergenciaE">
+                      </div>
+                    </div>
+                  </div>
+      					</div>
+
+                <div class="tab-pane panel panel-body" id="panel-datos_representante">
+                  <div class="row">
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label>Cedula</label>
+                        <input type="text" class="form-control" id="txtCedulaRepresentante" name="txtCedulaRepresentante" maxlength="10">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Nombres</label>
+                        <input type="text" class="form-control" id="txtNombresRepresentante" name="txtNombresRepresentante">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Apellidos</label>
+                        <input type="text" class="form-control" id="txtApellidosRepresentante" name="txtApellidosRepresentante">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Parentezco</label>
+                        <select class="form-control" name="cmbParentezcoRepresentante" id="cmbParentezcoRepresentante">                              
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label>Tel. Convencional</label>
+                        <input type="text" class="form-control" maxlength="10" id="txtTelefonoConvencionalR" name="txtTelefonoConvencionalR">
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-1"></div>
+                      
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label>Tel. Celular</label>
+                        <input type="text" class="form-control" maxlength="10" id="txtTelefonoMovilR" name="txtTelefonoMovilR">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label>Nivel de Educación</label>
+                        <select class="form-control" id="cmbNivelEducacionRepresentante" name="cmbNivelEducacionRepresentante">
+                        	<option value="Ninguna">Ninguna</option>
+                        	<option value="Basica">Basica</option>
+                          <option value="Bachillerato">Bachillerato</option>
+                          <option value="Tercer Nivel">Tercer Nivel</option>
+                          <option value="Cuarto Nivel">Cuarto Nivel</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label>Profesion</label>
+                        <input type="text" class="form-control" name="txtProfesionRepresentante" id="txtProfesionRepresentante">
+                      </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label>Ocupacion</label>
+                        <input type="text" class="form-control" name="txtOcupacionRepresentante" id="txtOcupacionRepresentante">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <strong>  Vive con el Estudiante: &nbsp; &nbsp; &nbsp; </strong>
+                      <label class="radio-inline">
+	                      <input type="radio" name="rdViveRepresentante" id="rdViveRepresentante" value="Si"> Si
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="rdViveRepresentante" id="rdViveRepresentante" value="No"> No
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <br>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Dirección</label>
+                        <input type="text" name="txtDireccionRepresentante" id="txtDireccionRepresentante" class="form-control">
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  
+                  <div class="tab-pane panel panel-body" id="panel-datos_domicilio">
+                    <div class="row">
+                      <br>
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label>Calle Principal:</label>
+                          <input required type="text" class="form-control" placeholder="" name="txtCallePrincipalE" id="txtCallePrincipalE">
+                        </div>
+                      </div>
+
+                      <div class="col-md-2">
+                        <div class="form-group">
+                          <label># Casa:</label>
+                          <input required type="text" class="form-control" placeholder="" name="txtNumeroCasaE" id="txtNumeroCasaE">
+                        </div>
+                      </div>
+
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label>Calle Secundaria:</label>
+                          <input required type="text" class="form-control" placeholder="" name="txtCalleSecundariaE" id="txtCalleSecundariaE">
+                        </div>
+                      </div>
+                    </div>
+
+                  	<div class="row">
+                      <br>
+                      <div class="col-md-4">
+                        <label>Provincia:</label>
+                       	<select class="form-control" id="cmbProvinciaE" name="cmbProvinciaE">
+                          <option  value="Pedro"> Pichincha </option>
+                          <option id="OtroPro" value="Otro"> Otra </option>
+                       	</select>
+                      </div>
+                      <div class="col-md-4">
+                        <label>Ciudad:</label>
+                        <select class="form-control" id="cmbCantonE" name="cmbCiudadE">
+                        	<option value="Otro">Otro</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-4">
+                        <label>Parroquia: </label> 
+                        <select class="form-control" id="cmbParroquiaE" name="cmbParroquiaE">
+                        </select>
+                      </div>                               
+                    </div>
+        					</div>
+
+        					<div class="tab-pane panel panel-body" id="panel-datos_familiares">
+
+	                  <div class="row">
+
+	                        <!--padre-->
+	                    <div class="col-md-6">
+	                      <div class="alert alert-info">Datos del Padre</div>
+	                        <div class="row">
+
+	                          <div class="col-md-8">
+	                            <div class="form-group">
+                                <label class="col-sm-12 label-control">Cedula</label>
+                                <div class="col-sm-12">
+                                	<input type="number" class="form-control" id="txtCedulaP" name="txtCedulaP" maxlength="10">	
+                                	<!--span class="glyphicon glyphicon-ok form-control-feedback"></span-->
+                                </div>	                                
+	                            </div>
+	                          </div>
+	                        </div>
+	                            <div class="row">
+
+	                            <div class="col-md-12">
+	                            <div class="form-group">
+	                                <label>Nombres</label>
+	                                <input type="text" class="form-control" id="txtNombresP" name="txtNombresP">
+	                            </div>
+	                            </div>
+	                            </div>
+	                            <div class="row">
+
+	                            <div class="col-md-12">
+	                            <div class="form-group">
+	                                <label>Apellidos</label>
+	                                <input type="text" class="form-control" id="txtApellidosP" name="txtApellidosP">
+	                            </div>
+	                            </div>
+	                            </div>
+
+	                            <div class="row">
+
+	                            <div class="col-md-8">
+	                            <div class="form-group">
+	                                <label>T. Convencional</label>
+	                                <input type="text" class="form-control" maxlength="10" id="txtTelefonoConvencionalP" name="txtTelefonoConvencionalP">
+	                            </div>
+	                            </div>
+	                            </div>
+	                            <div class="row">
+
+	                            <div class="col-md-8">
+	                            <div class="form-group">
+	                                <label>T. Celular</label>
+	                                <input type="text" class="form-control" maxlength="10" id="txtTelefonoCelularP" name="txtTelefonoCelularP">
+	                            </div>
+	                            </div>
+	                            </div>
+
+	                            <div class="row">
+	                                <div class="col-md-12">
+	                                    <div class="form-group">
+	                                        <label>Nivel de Educación</label>
+	                                        <select class="form-control" id="cmbNivelEducacionP" name="cmbNivelEducacionP">
+	                                            <option value="Ninguna">Ninguna</option>
+	                                            <option value="Basica">Basica</option>
+	                                            <option value="Bachillerato">Bachillerato</option>
+	                                            <option value="Tercer Nivel">Tercer Nivel</option>
+	                                            <option value="Cuarto Nivel">Cuarto Nivel</option>
+	                                        </select>
+	                                    </div>
+
+	                                </div>
+	                            </div>
+
+	                            <div class="row">
+	                                <div class="col-md-12">
+	                                    <div class="form-group">
+	                                        <label>Profesión:</label>
+	                                        <input class="form-control" type="text" name="txtProfesionP" id="txtProfesionP">
+	                                    </div>
+	                                </div>
+	                            </div>
+
+	                            <div class="row">
+	                                <div class="col-md-12">
+	                                    <div class="form-group">
+	                                        <label>Ocupación:</label>
+	                                        <input class="form-control" type="text" name="txtOcupacionP" id="txtOcupacionP">
+	                                    </div>
+	                                </div>
+	                            </div>
+
+	                            <div class="row">
+	                                <div class="col-md-12">
+	                                  <strong>  Vive con el Estudiante: &nbsp; &nbsp; &nbsp; </strong>
+	                                    <label class="radio-inline">
+	                            <input type="radio" name="rdVivePadre" id="rdVivePadre" value="Si"> Si
+	                            </label>
+	                            <label class="radio-inline">
+	                            <input type="radio" name="rdVivePadre" id="rdVivePadre" value="No"> No
+	                            </label>
+	                                </div>
+	                            </div>
+
+
+	                            <div class="row">
+	                                <br>
+	                                <div class="col-md-12">
+	                                  <strong>Aut. Retirar Carpeta Est.: &nbsp; &nbsp; </strong>
+	                                    <label class="radio-inline">
+	                            <input type="radio" name="rdRetirarCarpetaP" id="rdRetirarCarpetaP" value="Si"> Si
+	                            </label>
+	                            <label class="radio-inline">
+	                            <input type="radio" name="rdRetirarCarpetaP" id="rdRetirarCarpetaP" value="No"> No
+	                            </label>
+	                                </div>
+	                            </div>
+
+
+	                        </div>
+
+	                        <!--madre-->
+	                        <div class="col-md-6">
+
+	                            <div class="alert alert-info">Datos de la Madre</div>
+	                            <div class="row">
+
+	                            <div class="col-md-8">
+	                            <div class="form-group">
+	                                <label>Cedula</label>
+	                                <input type="text" class="form-control" id="txtCedulaM" name="txtCedulaM" maxlength="10">
+	                            </div>
+	                            </div>
+	                            </div>
+	                            <div class="row">
+
+	                            <div class="col-md-12">
+	                            <div class="form-group">
+	                                <label>Nombres</label>
+	                                <input type="text" class="form-control" id="txtNombresM" name="txtNombresM">
+	                            </div>
+	                            </div>
+	                            </div>
+	                            <div class="row">
+
+	                            <div class="col-md-12">
+	                            <div class="form-group">
+	                                <label>Apellidos</label>
+	                                <input type="text" class="form-control" id="txtApellidosM" name="txtApellidosM">
+	                            </div>
+	                            </div>
+	                            </div>
+
+	                            <div class="row">
+
+	                            <div class="col-md-8">
+	                            <div class="form-group">
+	                                <label>T. Convencional</label>
+	                                <input type="text" class="form-control" maxlength="10" id="txtTelefonoConvencionalM" name="txtTelefonoConvencionalM">
+	                            </div>
+	                            </div>
+	                            </div>
+	                            <div class="row">
+
+	                            <div class="col-md-8">
+	                            <div class="form-group">
+	                                <label>T. Celular</label>
+	                                <input type="text" class="form-control" maxlength="10" id="txtTelefonoCelularM" name="txtTelefonoCelularM">
+	                            </div>
+	                            </div>
+	                            </div>
+
+	                            <div class="row">
+	                                <div class="col-md-12">
+	                                    <div class="form-group">
+	                                        <label>Nivel de Educación</label>
+	                                        <select class="form-control" id="cmbNivelEducacionM" name="cmbNivelEducacionM">
+	                                            <option value="Ninguna">Ninguna</option>
+	                                            <option value="Basica">Basica</option>
+	                                            <option value="Bachillerato">Bachillerato</option>
+	                                            <option value="Tercer Nivel">Tercer Nivel</option>
+	                                            <option value="Cuarto Nivel">Cuarto Nivel</option>
+	                                        </select>
+	                                    </div>
+
+	                                </div>
+	                            </div>
+
+	                            <div class="row">
+	                                <div class="col-md-12">
+	                                    <div class="form-group">
+	                                        <label>Profesión:</label>
+	                                        <input class="form-control" type="text" name="txtProfesionM" id="txtProfesionM">
+	                                    </div>
+	                                </div>
+	                            </div>
+
+	                            <div class="row">
+	                                <div class="col-md-12">
+	                                    <div class="form-group">
+	                                        <label>Ocupación:</label>
+	                                        <input class="form-control" type="text" name="txtOcupacionM" id="txtOcupacionM">
+	                                    </div>
+	                                </div>
+	                            </div>
+
+	                            <div class="row">
+	                                <div class="col-md-12">
+	                                  <strong>  Vive con el Estudiante: &nbsp; &nbsp;&nbsp; &nbsp; </strong>
+	                                    <label class="radio-inline">
+	                            <input type="radio" name="rdViveMadre" id="rdViveMadre" value="Si"> Si
+	                            </label>
+	                            <label class="radio-inline">
+	                            <input type="radio" name="rdViveMadre" id="rdViveMadre" value="No"> No
+	                            </label>
+	                                </div>
+	                            </div>
+
+
+	                            <div class="row">
+	                                <br>
+	                                <div class="col-md-12">
+	                                  <strong>Aut. Retirar Carpeta Est.: &nbsp; &nbsp; </strong>
+	                                    <label class="radio-inline">
+	                            <input type="radio" name="rdRetirarCarpetaM" id="rdRetirarCarpetaM" value="Si"> Si
+	                            </label>
+	                            <label class="radio-inline">
+	                            <input type="radio" name="rdRetirarCarpetaM" id="rdRetirarCarpetaM" value="No"> No
+	                            </label>
+	                                </div>
+	                            </div>
+
+
+	                        </div>
+
+	                    </div>
+
+                              <div class="row">
+                                  <br>
+                                  <div class="col-md-12">
+                                          <strong>Representante: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </strong>
+                                          &nbsp; &nbsp; &nbsp; &nbsp;
+                                          <label class="radio-inline">&nbsp;
+                                          <input type="radio" name="rdRepresentante" id="rdRepresentante" value="Papi"> Padre
+                                          </label>
+                                          <label class="radio-inline">&nbsp;
+                                          <input type="radio" name="rdRepresentante" id="rdRepresentante" value="Mami"> Madre
+                                          </label>
+                                          <label class="radio-inline">
+                                          <input type="radio" name="rdRepresentante" id="rdRepresentante" value="Otros"> Otros
+                                          </label>
+                                  </div>
+                              </div>
+
+          					</div>
+          				</div>
+          			</div>
+                </div>
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-3" id="divBtnCancelar">
+                    <input type="reset" value="Cancelar" class="btn btn-inverse">
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-3">
+                    <input type="submit" class="btn btn-primary" value="Guardar">
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </form>

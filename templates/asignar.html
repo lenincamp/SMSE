@@ -1,0 +1,172 @@
+{% extends "base_logueado_admin.html"	%}
+{% block user %}
+	{{	nombre_usuario	}}
+{% endblock user %}
+
+
+{%	block contenido%}
+	<br><br><br><br>
+
+
+	<div class="col-md-6 col-md-offset-2" style="width: 680px">	
+		<div class="panel panel-info">
+	  		<div class="panel-heading" style="text-align: center;"><h4> ASIGNACIONES </h4> </div>
+	  			
+	  				<div class="panel-body">	  					
+		  				<div class="row"> 		
+
+			  					<div class="col-md-4 col-md-offset-0">
+			  						<!--<label>Curso:</label>-->
+			  						<select class="form-control input-xs" id="cmbCurso" name="cmbCurso"> 		</select>
+			  					</div>
+
+
+			  					<div class="col-md-4">
+			  						
+			  						<!--<label>Especialidad:</label>-->
+			  						
+			  						<select class="form-control input-xs" id="cmbEspecialidad" name="cmbCurso"> </select>
+			  						
+			  					</div>
+
+			  					<div class="col-md-4">		  						
+			  						<!-- BOTON Paralelos-->								
+										<button type="button" class="btn btn-success activar" data-toggle="modal" data-target="#idParalelo">
+					              			<span class="glyphicon glyphicon-check"></span>Paralelos
+					        			</button>
+								</div>
+		  					
+	  					</div><!-- row 1 -->
+	  					<br> 
+	  					
+	  					<!-- ROW TABLA -->
+	  					<div class="row">
+	  						<div class="col-xs-6" id="divTablaFiltros">
+								<div class="panel panel-info filterable table-responsive" style="width: 610px">
+		            				<div class="panel-heading" >
+		                				<h3 class="panel-title" style="text-align: center;">Cursos</h3>	                
+		            					</div>
+		            		<div style="height: 250px; 	overflow-y:auto;">
+			            		<table class="table text-justified table-hover table-bordered table-condensed" id="tabla">
+						            <thead>
+						            	<th>#</th>
+						            	<th>Curso</th>
+						            	<th>Especialidad</th>
+						            	<th>Paralelos</th>						            	
+						            	<th>Disponible</th>
+						            	<th>Máximo</th>
+						            	<th>Acción</th>
+						            </thead>
+						            <tbody id="bodyTablaAsignacion">
+						            	
+						            </tbody>
+			            		</table>
+		            		</div>
+
+		        			</div>
+	    			</div>
+	  						
+	  					</div><!-- final row tabla -->
+
+	  				</div><!-- Panel Body -->
+	  			
+	  	</div><!-- Panel Info -->
+	  </div><!-- row principal -->
+
+
+
+	  <!-- MODAL PARALELO -->
+		<div class="modal fade" id="idParalelo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            	 <div class="modal-dialog" style="width:400px">				
+              <div class="modal-content panel panel-primary">
+
+                <div class="modal-header panel panel-heading">
+
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Asignar Paralelos</h4>
+
+                </div>
+              
+                <div class="modal-body">                                
+                	<div class="row">
+	  						<div class="col-xs-6" id="divTablaFiltros">
+								<div class="panel panel-info filterable table-responsive" style="width: 340px">
+		            				<div class="panel-heading" >
+		                				<h3 class="panel-title" style="text-align: center;">Paralelos</h3>	                
+		            					</div>
+		            		<div style="height: 200px; 	overflow-y:auto;">
+			            		<table class="table text-justified table-hover table-bordered table-condensed" id="tabla" style="text-align: center;">
+						            <thead>
+						            	
+						            	<th>Paralelos</th>
+						            	<th>Seleccionar</th>
+						            	<th>Cupo</th>
+						            </thead>
+						            <tbody id="bodyTablaParalelos">
+						            	
+						            </tbody>
+			            		</table>
+		            		</div>
+
+		        			</div>
+	    			</div>
+	  						
+	  					</div><!-- final row tabla -->
+                	
+                  
+                 </div>                
+                 <div id="alert" style="display:none;" class="alert alert-danger"></div>
+                <div class="modal-footer" >
+
+                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                	<a href="" type="button" class="btn btn-primary" id="btnAsignar">Asignar</a>
+
+                </div>
+            
+              </div>
+              </div>
+             </div>
+       </div>
+       <!--MODAL PARALELO -->
+
+
+       <!-- MODAL PARALELO -->
+		<div class="modal fade" id="idEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            	 <div class="modal-dialog" style="width:250px;height: 100px">				
+              <div class="modal-content panel panel-primary">
+
+                <div class="modal-header panel panel-heading">
+
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Eliminar</h4>
+
+                </div>
+              
+                <div class="modal-body">                                                	
+                	<label><h4 id="texto"></h4></label>      
+                	<input id="txtIdAsignar" type="hidden" value="0">
+                 </div>                
+                 <div id="alert" style="display:none;" class="alert alert-danger"></div>
+                <div class="modal-footer" >
+
+                	<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                	<a href="" type="button" class="btn btn-primary" id="btnEliminar">Si</a>
+
+                </div>
+            
+              </div>
+              </div>
+             </div>
+       </div>
+       <!--MODAL PARALELO -->
+
+
+{% endblock contenido %}
+
+{% block javascript %}
+	
+	<script type="text/javascript" src="{{ STATIC_URL }}js/forms/asignar.js"></script>
+
+{% endblock javascript %}

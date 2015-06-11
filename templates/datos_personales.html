@@ -1,0 +1,40 @@
+{% extends "base_logueado_user.html" %}
+
+{% block user%}
+
+    {{ nombre_usuario }}
+{% endblock %}
+{% block contenido %}
+    <br><br><br><br>
+   {% include "forms/datos_alumno.html" %}
+
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/forms/ajax.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/forms/matriculaRegistro.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ci.validator.js"></script>
+<script>
+
+$(function(){
+       //toma las funciones de matriculaRegistro.js y manda a cargar datos mediante esta url
+       $.AJAX('/si/registro_matricula/cargar_datos/','', $.cargarDatos, false);
+       ////////////////////////////////////////////////////////////////////
+       //Habilita o deshabilita opcion Otros en Representante
+       $("input[name='rdRepresentante']").change(function(){
+           if (this.value == "Otros"){
+                $('#pestania_representante').removeClass("hidden");
+           }
+           else
+           {
+                $('#pestania_representante').addClass("hidden");
+           }
+
+
+       });
+
+
+});
+
+</script>
+{% endblock%}

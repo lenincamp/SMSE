@@ -1,0 +1,97 @@
+{% extends "base_logueado_admin.html" %}
+
+{% block user %}
+
+    {{ nombre_usuario }}
+{% endblock %}
+{% block contenido %}
+<br><br><br><br>
+
+<form class="form-horizontal col-md-offset-2" role="form" method="POST" action="." id='frmCrearUsuario' style="width:700px">
+<div class="panel panel-info">
+  <div class="panel-heading"><h4> NUEVO USUARIO </h4>	</div>
+  <div class="panel-body">
+
+  <div class="" role="alert" id="mensaje" style="display:none;width:350px;position:fixed;right: 10px;box-shadow: 5px 5px 5px #888888;">
+  El Usuario se creó correctamente
+	</div>
+		    <!-- Tipo de Usuario -->
+		    <div class="form-group">
+		        <label for="chEstado" class="col-sm-5 control-label">Tipo de Usuario:</label>
+		             <div class="col-sm-4">
+		             
+		                    <select class="form-control" name="cmbTipoUsuario" id="cmbTipoUsuario">
+                            </select>                         
+
+                     </div>
+		    </div>
+
+		   <!--USUARIO -->
+		   <div class="form-group" id="divUsuario">
+		                    <label for="txtUsuario" class="col-sm-5 control-label">Usuario:</label>
+		                    <div class="col-sm-4">
+		                        <input type="text" class="form-control" id="txtUsuario" name="txtUsuario">
+		                    </div>
+		    </div>
+
+		    <!--NOMBRE -->
+		   <div class="form-group" id="divNombre">
+                <label for="txtNombre" class="col-sm-5 control-label">Nombre:</label>
+                <div class="col-sm-4" id='divNombre'>
+                    <input type="text" class="form-control" id="txtNombre" name="txtNombre">
+                </div>
+		    </div>
+		    <!--APELLIDO -->
+		   <div class="form-group" id="divApellido">
+                <label for="txtApellido" class="col-sm-5 control-label">Apellido:</label>
+                <div class="col-sm-4" id='divNombre'>
+                    <input type="text" class="form-control" id="txtApellido" name="txtApellido">
+                </div>
+		    </div>
+		    <!--CEDULA -->
+		   <div class="form-group" id="divCedula">
+                <label for="txtCedula" class="col-sm-5 control-label">Cédula:</label>
+                <div class="col-sm-4" id='divNombre'>
+                    <input type="text" class="form-control" id="txtCedula" name="txtCedula">
+                </div>
+		    </div>
+		    <!--SEXO -->
+		    <div class="form-group" id="divSexo">			   
+			        <label class="col-sm-5 control-label">Sexo</label>
+			        <div class="col-sm-4"> 
+			          <select class="form-control" name="cmbSexo" id="cmbSexo">
+			          <option value="M">Masculino</option>
+			          <option value="F">Femenino</option>
+			          </select>	       		                     
+			        </div>
+			</div>
+		    <!--TELEFONO CELULAR -->
+		   <div class="form-group" id="divTelefonoCelular">
+                <label for="labelTelefonoCelular" class="col-sm-5 control-label">Telefono Celular:</label>
+                <div class="col-sm-4" id='divNombre'>
+                    <input type="text" class="form-control" id="txtTelefonoCelular" name="txtTelefonoCelular">
+                </div>
+		    </div>
+
+		    <!--EMAIL -->
+		   <div class="form-group" id="divEmail">
+                <label for="txtEmail" class="col-sm-5 control-label">Email:</label>
+                <div class="col-sm-4" id='divNombre'>
+                    <input type="text" class="form-control" id="txtEmail" name="txtEmail">
+                </div>
+		    </div>
+		    <!--  BOTON ENVIAR -->
+                <div class="form-group">
+                    <div class="col-sm-offset-6 col-sm-10">
+                        <button type="submit" class="btn btn-primary" id="btnEnviar">Enviar</button>
+                    </div>
+                </div>
+  </div>
+</div>
+
+</form>
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript" src="{{ STATIC_URL }}js/forms/crearUsuario.js"></script>
+{% endblock javascript %}

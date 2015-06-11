@@ -1,0 +1,96 @@
+{% extends "base_logueado_admin.html"	%}
+{% block user %}
+	{{	nombre_usuario	}}
+{% endblock user %}
+
+
+{%	block contenido%}
+	<br><br><br><br>
+	<!-- BOTON AGREGAR-->
+	<div class="text-right">
+		<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#idParroquia" onclick="$.editarText('Agregar Nueva Parroquia')">
+		              <span class="glyphicon glyphicon-plus-sign" ></span>Nuevo
+		        </button>							
+	</div>
+
+	<!-- CARGAR CANTON -->
+	
+		<br>
+		<!-- TABLA -->
+		<!--TABLA FILTROS-->
+		<div class="row">
+			
+		<div class="col-xs-3"></div>
+			<div class="col-xs-6" id="divTablaFiltros">
+				<div class="panel panel-info filterable table-responsive">
+		            <div class="panel-heading">
+		                <h3 class="panel-title" style="text-align: center;">Parroquia</h3>		                
+		            </div>
+		            <div style="height: 250px; overflow-y:auto;">
+		            	<table class="table text-justified table-hover table-bordered table-condensed" id="tabla">
+				            <thead>
+				            	<th >#</th>
+				            	<th >Nombre</th>
+				            	<th>Canton</th>				            	
+				            	<th >Acción</th>
+				            </thead>
+				            <tbody id="bodyTablaParroquia">
+				            	
+				            </tbody>
+			            </table>
+	
+		            </div>
+		            
+
+		        </div>
+	    	</div>
+	    <div class="col-xs-3"></div>
+	   <!-- MODAL PARROQUIA -->
+		<div class="row">
+			<div class="modal fade"  id="idParroquia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	            <div class="modal-dialog" style="width:300px">
+
+	              <div class="modal-content panel panel-primary">
+
+	                <div class="modal-header panel panel-heading">
+
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title" id="myModalLabel" style="text-align: center;"></h4>
+
+	                </div>
+	               
+	                <div class="modal-body" >
+	                	<input type="hidden" id="txtIdParroquia" value="0">
+	                	<div id="alert" style="display:none;" class="alert alert-danger"></div>                
+	                	
+	                	<label >Canton: </label><select class="form-control input-xs" id="cmbCanton"> </select>
+	                    <br> <br>
+	                    <label >Parroquia:</label> 	                   
+	                    <input type="text" class="form-control" placeholder="Nueva Parroquia" name="txtNuevaParroquia" id="txtNuevaParroquia">                                      
+	                   
+	                 </div>
+	                
+
+	                <div class="modal-footer" >
+
+	                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+	                	<a href="" type="button" class="btn btn-primary" id="btnGuardarParroquia">Guardar</a>
+
+	                </div>
+	            
+	              </div>
+
+	             </div>
+	       </div>
+	
+		</div>
+		
+
+
+{%	endblock contenido%}
+
+{% block javascript %}
+
+	<script type="text/javascript" src="{{ STATIC_URL }}js/forms/parroquia.js"></script>
+
+{% endblock javascript %}

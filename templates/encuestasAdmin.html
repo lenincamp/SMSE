@@ -1,0 +1,194 @@
+{% extends "base_logueado_admin.html" %}
+
+{% block css %}
+	@import url("{{ STATIC_URL }}css/estilosEncuesta.css");
+{% endblock css %}
+
+{% block user %}
+	{{nombre_usuario}}	
+{% endblock user %}
+
+{% block contenido %}
+	
+	<div id="mesajeFrmEncuesta" class="alert alert-danger" role="alert" id="mensaje" style="display:none;width:250px;position:fixed;right: 10px; top:10%;box-shadow: 5px 5px 5px #888888;z-index:9999">
+	</div>		
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="row" id="crearEncuesta">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+		        <h3 class="panel-title text-center"><b>Crear Encuestas</b></h3>
+		    </div>
+
+		    <br>
+	            
+	      <form method="POST" id="frmEncuesta" class="form-horizontal" role="form">	
+	      	<!--*** TEMA ***-->
+					<div class="form-group">
+				    <label class="col-lg-4 control-label">Tema:</label>
+				    <div class="col-lg-7">
+				      <input type="text" class="form-control" id="txtTema" name="txtTema">
+						</div>
+					</div>
+
+					<!--*** DESCRIPCION ***-->
+				  <div class="form-group">
+				    <label class="col-lg-4 control-label">Descripción:</label>
+				    <div class="col-lg-7">
+				      <textarea class="form-control" id="txtDescripcion" name="txtDescripcion" rows="3"></textarea>
+			    	</div>
+				  </div>
+
+				  <!--*** DISPONIBLE DESDE - HASTA ***-->
+				  <div class="form-group">
+				    <label class="col-lg-4 control-label">Disponible Desde:</label>
+				    <div class="col-lg-3">
+				      <input type="text" class="form-control" id="txtFechaDesde" name="txtFechaDesde">
+				    </div>		
+						
+						<label class="col-lg-1 control-label">Hasta:</label>
+				    <div class="col-lg-3">
+				      <input type="text" class="form-control" id="txtFechaHasta" name="txtFechaHasta">
+				    </div>	    
+
+				  </div>
+
+				  <hr>
+
+					<div class="form-group">
+						<div class="col-md-2 col-md-offset-5">
+							<a role="button" id="btnCrearEncuesta" class="btn btn-info"><i class="glyphicon glyphicon-check"></i> Crear</a>
+						</div>
+					</div>
+				</form>
+		    </div>
+		</div>
+	</div>
+	
+	<div class="row" id="crearPreguntas" style="display:none;">
+		<div class="col-md-10 col-md-offset-1" >
+			<div class="panel panel-info">
+				<div class="panel-heading">
+		        <h3 class="panel-title text-center"><b id="tema_encuesta">TEMA_ENCUESTA</b></h3>
+		        <div class="pull-right" style="margin-top:-20px;">
+		        	<a role="button" class="btn btn-info btn-xs" id="btnPregunta"><i class="glyphicon glyphicon-plus-sign"></i> <b>Pregunta</b></a>	
+		        </div>
+		        
+		    </div>
+
+		    <br>
+	            
+	      <form method="POST" id="frmPreguntasEncuesta" class="form-horizontal" role="form">   	
+
+					<!--*** DESCRIPCION ***-->
+				  <div class="form-group">
+				    <label class="col-lg-2 control-label">Pregunta:</label>
+				    <div class="col-lg-5">
+				      <textarea class="form-control" id="txtPregunta" name="txtPregunta" rows="3"></textarea>
+			    	</div>
+
+			    	<label class="col-lg-2 control-label">Tipo Pregunta:</label>
+				    <div class="col-lg-2">
+				      <select class="form-control input-sm" id="cmbTipoP" name="cmbTipoP"></select>
+			    	</div>
+
+						<br><br>
+
+			    	<label class="col-lg-2 control-label">Agregar Opción:</label>
+				    <div class="col-lg-2">
+
+				      <a role="button" class="btn btn-info btn-md" id="btnAgregarOpcion"><i class="glyphicon glyphicon-plus-sign"></i></a>
+			    	</div>
+				  </div>
+					<input type="hidden" id="txtIdEncuesta">
+					<ol id="divContenedorPreguntas" >
+						<!--ol class="pregunta">
+							<div class="pull-right" style="margin-top:-20px;">
+								<a role="button" class="btn btn-info btn-md" data-toggle='modal' data-placement='top' title='Editar Pregunta' data-target='#modalFrmPregunta'>
+									<i class="glyphicon glyphicon-edit"></i>
+								</a>
+							</div>
+							<li>
+								¿_______________________________________?
+							</li>
+							
+							<ol type=a class="opciones">
+								<li>....................</li>
+								<li>....................</li>
+								<li>....................</li>
+								<li>....................</li>
+							</ol>
+						</ol-->
+
+						
+					</ol>
+
+					<hr>
+					<div class="form-group">
+						<div class="col-md-2 col-md-offset-4">
+							<a role="button" id="btnCancelarEncuesta" class="btn btn-danger"><i class="glyphicon glyphicon-remove-circle"></i> Cancelar</a>
+						</div>
+
+						<div class="col-md-2">
+							<a role="button" id="btnCrearEncuesta" class="btn btn-info"><i class="glyphicon glyphicon-check"></i> Guardar</a>
+						</div>
+
+					</div>
+				</form>			
+
+		    </div>
+		</div>
+	</div>
+	<!--Modal Agregar Opciones-->	
+	<div class="modal fade" id="modalFrmOpcion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" >
+
+        <div class="modal-content panel panel-primary" style="max-height: 575; overflow-y:auto;">
+
+          <div class="modal-header panel panel-heading">
+
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="cerrarFrmOpcion">&times;</button>
+            <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Agregar Opción</h4>
+
+          </div>
+               
+          <div class="modal-body">
+          	<div class="row">
+							<div class="col-md-3 col-md-offset-2">
+          			<label># de Opciones:</label>             
+              </div>
+              <div class="col-md-2" >
+          			<input type="text" class="form-control" name="txtNroOpcion" id="txtNroOpcion" maxlength="2">             
+              </div>
+              <div class="col-md-2">
+              	<a role="button" id="btnCrearInputsOpcion" class="btn btn-info"><i class="glyphicon glyphicon-ok"></i> Crear</a>
+              </div>
+          	</div>
+          	<div class="row" id="bodyAgregarOpcion" style="margin-top: 20px;">
+          		
+          	</div>
+          	<br>
+                          
+          </div>
+                
+
+          <div class="modal-footer" >
+						<div class="col-md-5 col-md-offset-2">
+          		<a href="" type="button" class="btn btn-primary" id="btnAgregarOpcionP">Guardar</a>
+						</div> 	
+          </div>
+    	</div>
+   	</div>
+ 	</div>
+	
+{% endblock contenido %}
+{% block javascript %}
+	<script type="text/javascript" src="{{ STATIC_URL }}js/forms/crearEncuesta.js"></script>
+{% endblock javascript %}
